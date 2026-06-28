@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VibeLink - Analytics</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app" aria-label="Interaction Analytics">
+    <header class="topbar">
+      <a class="back-btn" href="screen1-home.html" aria-label="Kembali">&lsaquo;</a>
+      <h1 class="h-title">Analytics</h1>
+      <div class="segmented" role="tablist" aria-label="Periode">
+        <button type="button" aria-selected="true">Harian</button>
+        <button type="button" aria-selected="false">Mingguan</button>
+        <button type="button" aria-selected="false">Bulanan</button>
+      </div>
+    </header>
+
+    <section aria-label="Mood Palette">
+      <div class="row between">
+        <h2 class="section-title mb-0">Mood Palette</h2>
+        <span class="chip">Hari ini</span>
+      </div>
+      <div class="mood-palette mt-8" aria-label="Distribusi emosi harian">
+        <i class="bg-pos"></i><i class="bg-pos"></i><i class="bg-neu"></i><i class="bg-fru"></i><i class="bg-pos"></i>
+        <i class="bg-pos"></i><i class="bg-ang"></i><i class="bg-pos"></i><i class="bg-pos"></i><i class="bg-neu"></i>
+      </div>
+      <p class="mt-8">Dominan: Senang 52%, Netral 18%, Frustrasi 18%, Marah 12%.</p>
+    </section>
+
+    <section class="grid2 mt-16" aria-label="Statistik">
+      <article class="stat-card"><strong class="bignum bignum--sm">5</strong><p class="k">Percakapan</p></article>
+      <article class="stat-card"><strong class="bignum bignum--sm">2j 14m</strong><p class="k">Listening</p></article>
+      <article class="stat-card"><strong class="bignum bignum--sm">2</strong><p class="k">Peringatan</p></article>
+      <article class="stat-card">
+        <div class="donut" aria-label="Distribusi emosi 52 persen senang"></div>
+        <p class="k">Distribusi emosi</p>
+        <div class="legend" aria-label="Legenda distribusi emosi">
+          <span><i class="swatch bg-pos"></i>Senang 52%</span>
+          <span><i class="swatch bg-neu"></i>Netral 18%</span>
+          <span><i class="swatch bg-fru"></i>Frustrasi 18%</span>
+          <span><i class="swatch bg-ang"></i>Marah 12%</span>
+        </div>
+      </article>
+    </section>
+
+    <section class="card card--accent mt-16">
+      <h2 class="surface-title">Insight Harian</h2>
+      <p>Hari ini Anda melakukan 5 percakapan. Mayoritas bernada positif. Ada 2 peringatan klakson di sore hari.</p>
+    </section>
+
+    <section class="card" aria-label="Riwayat dan tren">
+      <h2 class="surface-title">Riwayat Percakapan</h2>
+      <a class="list-row" href="screen2-conversation.html">
+        <span class="label">Rapat proyek - 10:30</span>
+        <span class="mood-palette" style="width:104px"><i class="bg-pos"></i><i class="bg-neu"></i><i class="bg-fru"></i><i class="bg-pos"></i></span>
+      </a>
+      <a class="list-row" href="screen2-conversation.html">
+        <span class="label">Tugas kelompok Dimas - 15:10</span>
+        <span class="mood-palette" style="width:104px"><i class="bg-pos"></i><i class="bg-pos"></i><i class="bg-neu"></i><i class="bg-pos"></i></span>
+      </a>
+      <h2 class="surface-title mt-16">Tren Mingguan</h2>
+      <div class="trend" aria-label="Bar tren mingguan">
+        <i style="height:44px"></i><i class="bg-blue" style="height:72px"></i><i class="bg-yellow" style="height:54px"></i>
+        <i class="bg-green" style="height:88px"></i><i class="bg-pink" style="height:64px"></i><i style="height:92px"></i><i class="bg-blue" style="height:78px"></i>
+      </div>
+    </section>
+
+    <a class="pill-btn pill-btn--dark full" href="#" aria-label="Ekspor PDF"><img src="assets/icons/export.svg" alt="">Ekspor PDF</a>
+
+    <nav class="bottom-nav" aria-label="Navigasi utama">
+      <a class="nav-item active" href="screen1-home.html"><img src="assets/icons/nav-home.svg" alt="">Home</a>
+      <a class="nav-item" href="screen2-conversation.html"><img src="assets/icons/nav-conversation.svg" alt="">Conversation</a>
+      <a class="fab" href="screen2-conversation.html" aria-label="Toggle mikrofon"><img src="assets/icons/mic.svg" alt=""></a>
+      <a class="nav-item" href="screen3-soundmap.html"><img src="assets/icons/nav-soundmap.svg" alt="">Sound Map</a>
+      <a class="nav-item" href="screen6-profile.html"><img src="assets/icons/nav-profile.svg" alt="">Profile</a>
+    </nav>
+  </main>
+  <script>
+    document.querySelectorAll('.segmented button').forEach(button => {
+      button.addEventListener('click', () => {
+        button.parentElement.querySelectorAll('button').forEach(item => item.setAttribute('aria-selected', 'false'));
+        button.setAttribute('aria-selected', 'true');
+      });
+    });
+  </script>
+</body>
+</html>

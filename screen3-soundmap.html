@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VibeLink - Sound Map</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app" aria-label="Sound Map">
+    <header class="topbar">
+      <a class="back-btn" href="screen1-home.html" aria-label="Kembali">&lsaquo;</a>
+      <h1 class="h-title">Sound Map</h1>
+      <div class="segmented" role="tablist" aria-label="Mode">
+        <button type="button" aria-selected="true">Filter</button>
+        <button type="button" aria-selected="false">Alert</button>
+      </div>
+    </header>
+
+    <section class="hero-ring radar-ring" aria-label="Radar suara melingkar">
+      <div class="you">Anda</div>
+      <button class="cat-chip blip alarm" type="button" aria-label="Alarm - depan"><img src="assets/icons/sound-alarm.svg" alt=""></button>
+      <button class="cat-chip bg-yellow blip car" type="button" aria-label="Kendaraan - kiri"><img src="assets/icons/sound-kendaraan.svg" alt=""></button>
+      <button class="cat-chip bg-green blip person" type="button" aria-label="Orang - kanan"><img src="assets/icons/sound-orang.svg" alt=""></button>
+    </section>
+
+    <h2 class="section-title">Terdeteksi</h2>
+    <section class="card" aria-label="Daftar suara terdeteksi">
+      <article class="list-row" tabindex="0" role="button">
+        <span class="cat-chip bg-ang" style="border-radius:4px" aria-label="Alarm"><img src="assets/icons/sound-alarm.svg" alt=""></span>
+        <span class="label">Alarm - depan</span>
+        <span class="meta">92% - ~5m - now</span>
+      </article>
+      <article class="list-row" tabindex="0" role="button">
+        <span class="cat-chip bg-yellow" aria-label="Kendaraan"><img src="assets/icons/sound-kendaraan.svg" alt=""></span>
+        <span class="label">Kendaraan - kiri</span>
+        <span class="meta">78% - ~12m - 2s</span>
+      </article>
+      <article class="list-row" tabindex="0" role="button">
+        <span class="cat-chip bg-green" aria-label="Orang"><img src="assets/icons/sound-orang.svg" alt=""></span>
+        <span class="label">Orang - kanan</span>
+        <span class="meta">84% - ~2m - 4s</span>
+      </article>
+    </section>
+    <p class="disclaimer">Arah & deteksi bersifat estimasi - bukan alat keselamatan tunggal.</p>
+
+    <nav class="bottom-nav" aria-label="Navigasi utama">
+      <a class="nav-item" href="screen1-home.html"><img src="assets/icons/nav-home.svg" alt="">Home</a>
+      <a class="nav-item" href="screen2-conversation.html"><img src="assets/icons/nav-conversation.svg" alt="">Conversation</a>
+      <a class="fab" href="screen2-conversation.html" aria-label="Toggle mikrofon"><img src="assets/icons/mic.svg" alt=""></a>
+      <a class="nav-item active" href="screen3-soundmap.html"><img src="assets/icons/nav-soundmap.svg" alt="">Sound Map</a>
+      <a class="nav-item" href="screen6-profile.html"><img src="assets/icons/nav-profile.svg" alt="">Profile</a>
+    </nav>
+  </main>
+  <script>
+    document.querySelectorAll('.segmented button').forEach(button => {
+      button.addEventListener('click', () => {
+        button.parentElement.querySelectorAll('button').forEach(item => item.setAttribute('aria-selected', 'false'));
+        button.setAttribute('aria-selected', 'true');
+      });
+    });
+  </script>
+</body>
+</html>

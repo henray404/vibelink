@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VibeLink - Home</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app" aria-label="Home VibeLink">
+    <header class="topbar">
+      <img class="brand-logo" src="assets/vibelink-logo.svg" alt="VibeLink">
+      <div class="row">
+        <a class="icon-btn" href="screen4-analytics.html" aria-label="Notifikasi"><img src="assets/icons/notification.svg" alt=""></a>
+        <a class="icon-btn" href="screen6-profile.html" aria-label="Profil"><img src="assets/icons/nav-profile.svg" alt=""></a>
+      </div>
+    </header>
+
+    <section class="hero-ring" aria-label="Suasana suara saat ini">
+      <svg class="ring-svg" viewBox="0 0 260 260" aria-hidden="true">
+        <g fill="none" stroke-width="16" stroke-linecap="round">
+          <path d="M91.04 33.57 A104 104 0 0 1 168.96 33.57" stroke="var(--cat-yellow)"/>
+          <path d="M194.03 48.05 A104 104 0 0 1 232.99 115.53" stroke="var(--cat-green)"/>
+          <path d="M232.99 144.47 A104 104 0 0 1 194.03 211.95" stroke="var(--cat-pink)"/>
+          <path d="M168.96 226.43 A104 104 0 0 1 91.04 226.43" stroke="var(--cat-blue)"/>
+          <path d="M65.97 211.95 A104 104 0 0 1 27.01 144.47" stroke="var(--cat-yellow)"/>
+          <path d="M27.01 115.53 A104 104 0 0 1 65.97 48.05" stroke="var(--cat-green)"/>
+        </g>
+        <g class="ring-bubbles" stroke="var(--line)" stroke-width="1.5">
+          <circle cx="130" cy="26" r="19" fill="var(--cat-yellow)"/>
+          <image href="assets/icons/sound-pintu.svg" x="119" y="15" width="22" height="22"/>
+          <circle cx="220.07" cy="78" r="19" fill="var(--cat-green)"/>
+          <image href="assets/icons/sound-musik.svg" x="209.07" y="67" width="22" height="22"/>
+          <circle cx="220.07" cy="182" r="19" fill="var(--cat-pink)"/>
+          <image href="assets/icons/sound-orang.svg" x="209.07" y="171" width="22" height="22"/>
+          <circle cx="130" cy="234" r="19" fill="var(--cat-blue)"/>
+          <image href="assets/icons/nav-conversation.svg" x="119" y="223" width="22" height="22"/>
+          <circle cx="39.93" cy="182" r="19" fill="var(--cat-yellow)"/>
+          <image href="assets/icons/sound-kendaraan.svg" x="28.93" y="171" width="22" height="22"/>
+          <circle cx="39.93" cy="78" r="19" fill="var(--cat-pink)"/>
+          <image href="assets/icons/alert.svg" x="28.93" y="67" width="22" height="22"/>
+        </g>
+      </svg>
+      <div class="hero-ring__center">
+        <strong class="bignum">62</strong>
+        <span class="chip bg-neu">dB - Normal</span>
+        <p>Suasana stabil. Percakapan ringan terdeteksi di kanan.</p>
+      </div>
+    </section>
+
+    <div class="primary-row">
+      <a class="pill-btn pill-btn--dark" href="screen2-conversation.html"><img src="assets/icons/mic.svg" alt="">Mulai Mendengarkan</a>
+      <a class="icon-btn" href="screen3-soundmap.html" aria-label="Filter"><img src="assets/icons/filter.svg" alt=""></a>
+      <a class="icon-btn" href="screen4-analytics.html" aria-label="Ekspor"><img src="assets/icons/export.svg" alt=""></a>
+    </div>
+
+    <section class="card card--accent" aria-label="Insight VibeLink">
+      <p><strong>VibeLink:</strong> suasana sekitar tenang 12 menit terakhir.</p>
+      <a class="pill-btn pill-btn--dark mt-12" href="screen4-analytics.html">Lihat detail</a>
+    </section>
+
+    <h2 class="section-title">Suara terdeteksi</h2>
+    <section class="card" aria-label="Daftar suara terdeteksi">
+      <article class="list-row" tabindex="0" role="button">
+        <span class="cat-chip bg-blue" aria-label="Percakapan"><img src="assets/icons/nav-conversation.svg" alt=""></span>
+        <span class="label">Percakapan</span>
+        <div class="progress-cell"><div class="progress"><div class="progress__fill bg-blue" style="width:68%"></div></div></div>
+        <strong class="bignum bignum--sm">8.3</strong>
+      </article>
+      <article class="list-row" tabindex="0" role="button">
+        <span class="cat-chip bg-yellow" aria-label="Kendaraan"><img src="assets/icons/sound-kendaraan.svg" alt=""></span>
+        <span class="label">Kendaraan</span>
+        <div class="progress-cell"><div class="progress"><div class="progress__fill bg-yellow" style="width:42%"></div></div></div>
+        <strong class="bignum bignum--sm">4.8</strong>
+      </article>
+      <article class="list-row" tabindex="0" role="button">
+        <span class="cat-chip bg-green" aria-label="Orang"><img src="assets/icons/sound-orang.svg" alt=""></span>
+        <span class="label">Orang kanan</span>
+        <div class="progress-cell"><div class="progress"><div class="progress__fill bg-green" style="width:54%"></div></div></div>
+        <strong class="bignum bignum--sm">6.1</strong>
+      </article>
+    </section>
+
+    <nav class="bottom-nav" aria-label="Navigasi utama">
+      <a class="nav-item active" href="screen1-home.html"><img src="assets/icons/nav-home.svg" alt="">Home</a>
+      <a class="nav-item" href="screen2-conversation.html"><img src="assets/icons/nav-conversation.svg" alt="">Conversation</a>
+      <a class="fab" href="screen2-conversation.html" aria-label="Toggle mikrofon"><img src="assets/icons/mic.svg" alt=""></a>
+      <a class="nav-item" href="screen3-soundmap.html"><img src="assets/icons/nav-soundmap.svg" alt="">Sound Map</a>
+      <a class="nav-item" href="screen6-profile.html"><img src="assets/icons/nav-profile.svg" alt="">Profile</a>
+    </nav>
+  </main>
+</body>
+</html>

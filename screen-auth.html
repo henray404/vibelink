@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VibeLink - Masuk</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app" aria-label="Autentikasi VibeLink">
+    <header class="topbar">
+      <img class="brand-logo" src="assets/vibelink-logo.svg" alt="VibeLink">
+      <a class="back-btn" href="screen0-onboarding.html" aria-label="Kembali">&lsaquo;</a>
+    </header>
+
+    <section class="card card--dark">
+      <span class="chip bg-pink">Profil awal</span>
+      <h1 class="h-title mt-12">Masuk dengan beban kognitif rendah.</h1>
+      <p class="mt-8">Label selalu terlihat, target sentuh besar, dan profil aksesibilitas dipilih bertahap.</p>
+    </section>
+
+    <div class="segmented mt-16" role="tablist" aria-label="Pilih mode autentikasi">
+      <button type="button" aria-selected="true">Login</button>
+      <button type="button" aria-selected="false">Register</button>
+    </div>
+
+    <section class="card mt-16">
+      <h2 class="surface-title">Login</h2>
+      <form class="stack" action="screen1-home.html">
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" type="email" value="rina@example.com" autocomplete="email">
+        </div>
+        <div class="field">
+          <label for="password">Password</label>
+          <input id="password" type="password" value="vibelink" autocomplete="current-password">
+        </div>
+        <button class="pill-btn pill-btn--accent full" type="submit">Masuk</button>
+        <button class="pill-btn full" type="button">Masuk dengan Google</button>
+        <button class="pill-btn full" type="button">Masuk dengan Apple</button>
+      </form>
+    </section>
+
+    <section class="card">
+      <div class="row between">
+        <h2 class="surface-title mb-0">Register - pilih profil</h2>
+        <span class="chip">Langkah 2/2</span>
+      </div>
+      <div class="stack mt-12">
+        <a class="card profile-choice" href="screen1-home.html" tabindex="0" role="button" aria-pressed="true">
+          <span class="cat-chip bg-blue"><img src="assets/icons/notification.svg" alt=""></span>
+          <div><strong>Tunarungu/HoH</strong><p>Visual penuh, haptik sedang, caption besar.</p></div>
+        </a>
+        <a class="card profile-choice" href="screen1-home.html" tabindex="0" role="button" aria-pressed="false">
+          <span class="cat-chip bg-pink"><img src="assets/icons/settings.svg" alt=""></span>
+          <div><strong>ASD</strong><p>Gerak pelan, haptik ringan, label eksplisit.</p></div>
+        </a>
+        <a class="card profile-choice" href="screen1-home.html" tabindex="0" role="button" aria-pressed="false">
+          <span class="cat-chip bg-green"><img src="assets/vibelink-icon.svg" alt=""></span>
+          <div><strong>Lainnya</strong><p>Preset seimbang dan bisa diubah.</p></div>
+        </a>
+      </div>
+      <p class="mt-12"><span class="chip bg-ang">Error</span> Form memakai warna, ikon, dan teks.</p>
+    </section>
+  </main>
+  <script>
+    document.querySelectorAll('.segmented button').forEach(button => {
+      button.addEventListener('click', () => {
+        button.parentElement.querySelectorAll('button').forEach(item => item.setAttribute('aria-selected', 'false'));
+        button.setAttribute('aria-selected', 'true');
+      });
+    });
+  </script>
+</body>
+</html>

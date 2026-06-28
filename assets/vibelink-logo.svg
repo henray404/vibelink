@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 88" role="img" aria-labelledby="title">
+  <title id="title">VibeLink logo</title>
+  <g fill="#4C9DB0">
+    <rect x="24" y="38" width="8" height="22" rx="4"/>
+    <rect x="40" y="30" width="8" height="30" rx="4"/>
+    <rect x="56" y="22" width="8" height="38" rx="4"/>
+    <rect x="72" y="34" width="8" height="26" rx="4"/>
+  </g>
+  <text x="100" y="57" font-family="Inter, system-ui, sans-serif" font-size="38" font-weight="700" letter-spacing="0" fill="#1E3A42">Vibe<tspan fill="#4C9DB0">Link</tspan></text>
+</svg>

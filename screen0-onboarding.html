@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VibeLink - Onboarding</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app" aria-label="VibeLink onboarding">
+    <header class="topbar">
+      <img class="brand-logo" src="assets/vibelink-logo.svg" alt="VibeLink">
+      <a class="pill-btn" href="screen-auth.html">Lewati</a>
+    </header>
+
+    <section class="slide active" data-slide-panel>
+      <div class="illustration bg-yellow" aria-label="Splash VibeLink">
+        <span class="blob one"></span><span class="blob two"></span><span class="blob three"></span>
+        <img src="assets/vibelink-icon.svg" alt="" style="position:absolute;left:50%;top:50%;width:92px;transform:translate(-50%,-50%)">
+      </div>
+      <div>
+        <h1 class="h-title">VibeLink</h1>
+        <p class="mt-8">Rasakan suara sebagai visual dan getaran.</p>
+      </div>
+    </section>
+
+    <section class="slide" data-slide-panel>
+      <div class="card bg-blue illustration" aria-label="Live Atmosphere Canvas">
+        <div class="hero-ring" style="margin-top:-4px">
+          <div class="hero-ring__arcs"></div>
+          <div class="hero-ring__center"><strong class="bignum">62</strong><span class="chip bg-neu">dB - Normal</span></div>
+        </div>
+      </div>
+      <div>
+        <h1 class="h-title">Suasana ruangan dalam sekali lihat.</h1>
+        <p class="mt-8">Canvas menampilkan kategori suara, dB, dan status eksplisit.</p>
+      </div>
+    </section>
+
+    <section class="slide" data-slide-panel>
+      <div class="card bg-pink illustration" aria-label="Conversation Mode">
+        <div style="position:absolute;left:18px;right:18px;top:74px">
+          <div class="emotion-bar"><span class="emotion-seg pos"></span><span class="emotion-seg neu"></span><span class="emotion-seg fru"></span><span class="emotion-seg ang"></span></div>
+          <div class="emotion-label"><img src="assets/icons/emotion-frustrasi.svg" alt="" width="32" height="32">Tegang</div>
+          <div class="bubble">"Ya... nggak papa sih."<small>ikon + label + strip</small></div>
+        </div>
+      </div>
+      <div>
+        <h1 class="h-title">Teks percakapan punya konteks emosi.</h1>
+        <p class="mt-8">Rina dan Dimas mendapat label sosial yang eksplisit.</p>
+      </div>
+    </section>
+
+    <section class="slide" data-slide-panel>
+      <div class="card bg-green illustration" aria-label="Sound Map">
+        <div class="hero-ring radar-ring" style="margin-top:-4px">
+          <div class="you">Anda</div>
+          <span class="cat-chip blip alarm"><img src="assets/icons/sound-alarm.svg" alt=""></span>
+          <span class="cat-chip bg-yellow blip car"><img src="assets/icons/sound-kendaraan.svg" alt=""></span>
+          <span class="cat-chip bg-green blip person"><img src="assets/icons/sound-orang.svg" alt=""></span>
+        </div>
+      </div>
+      <div>
+        <h1 class="h-title">Ketahui arah suara penting.</h1>
+        <p class="mt-8">Radar menampilkan kategori, arah estimasi, confidence, dan peringatan.</p>
+      </div>
+    </section>
+
+    <div class="dots" role="tablist" aria-label="Indikator slide">
+      <button type="button" aria-selected="true" aria-label="Slide 1"></button>
+      <button type="button" aria-selected="false" aria-label="Slide 2"></button>
+      <button type="button" aria-selected="false" aria-label="Slide 3"></button>
+      <button type="button" aria-selected="false" aria-label="Slide 4"></button>
+    </div>
+    <div class="row between">
+      <button class="pill-btn" type="button" data-prev>Kembali</button>
+      <button class="pill-btn pill-btn--dark" type="button" data-next>Lanjut</button>
+    </div>
+  </main>
+  <script>
+    const panels = [...document.querySelectorAll('[data-slide-panel]')];
+    const dots = [...document.querySelectorAll('.dots button')];
+    let index = 0;
+    function showSlide(nextIndex) {
+      index = Math.max(0, Math.min(panels.length - 1, nextIndex));
+      panels.forEach((panel, i) => panel.classList.toggle('active', i === index));
+      dots.forEach((dot, i) => dot.setAttribute('aria-selected', String(i === index)));
+      document.querySelector('[data-next]').textContent = index === panels.length - 1 ? 'Mulai' : 'Lanjut';
+    }
+    document.querySelector('[data-next]').addEventListener('click', () => {
+      if (index === panels.length - 1) location.href = 'screen-auth.html';
+      else showSlide(index + 1);
+    });
+    document.querySelector('[data-prev]').addEventListener('click', () => showSlide(index - 1));
+  </script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VibeLink - Profile</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app" aria-label="Profil">
+    <header class="topbar">
+      <a class="back-btn" href="screen1-home.html" aria-label="Kembali">&lsaquo;</a>
+      <h1 class="h-title">Profile</h1>
+      <a class="icon-btn" href="screen5-settings.html" aria-label="Pengaturan"><img src="assets/icons/settings.svg" alt=""></a>
+    </header>
+
+    <section class="card" aria-label="Profil Rina">
+      <div class="avatar-ring"><div><img src="assets/vibelink-icon.svg" alt="Avatar Rina"></div></div>
+      <div style="text-align:center">
+        <h2 class="h-title">Rina Prameswari</h2>
+        <p>rina@example.com</p>
+        <span class="chip bg-blue mt-12">Profil: Tunarungu</span>
+      </div>
+    </section>
+
+    <h2 class="section-title">Statistik Saya</h2>
+    <section class="grid2" aria-label="Statistik kumulatif">
+      <article class="stat-card"><strong class="bignum bignum--sm">42j</strong><p class="k">Total listening</p></article>
+      <article class="stat-card"><strong class="bignum bignum--sm">86</strong><p class="k">Percakapan</p></article>
+      <article class="stat-card"><strong class="bignum bignum--sm">14</strong><p class="k">Peringatan</p></article>
+      <article class="stat-card"><strong class="bignum bignum--sm">52%</strong><p class="k">Emosi tersering: Senang</p></article>
+    </section>
+
+    <section class="card mt-16">
+      <h2 class="surface-title">Kontak Darurat</h2>
+      <div class="timeline">
+        <div class="list-row">
+          <span class="dot" aria-hidden="true"></span>
+          <span class="label">Ibu</span>
+          <span class="meta">SMS + GPS</span>
+        </div>
+        <div class="list-row">
+          <span class="dot" aria-hidden="true"></span>
+          <span class="label">Mentor Kampus</span>
+          <span class="meta">Alarm panjang</span>
+        </div>
+      </div>
+      <p class="mt-12">Auto SMS+GPS dikirim jika darurat berlangsung >10s.</p>
+      <button class="pill-btn mt-12" type="button">Tambah kontak</button>
+    </section>
+
+    <section class="card">
+      <div class="list-row">
+        <span class="cat-chip bg-pink" aria-label="Smartwatch"><img src="assets/icons/notification.svg" alt=""></span>
+        <span class="label">Hubungkan Smartwatch</span>
+        <button class="pill-btn" type="button">Connect</button>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="row between wrap">
+        <button class="pill-btn" type="button">Keluar</button>
+        <button class="pill-btn danger" type="button">Hapus Akun</button>
+      </div>
+    </section>
+
+    <nav class="bottom-nav" aria-label="Navigasi utama">
+      <a class="nav-item" href="screen1-home.html"><img src="assets/icons/nav-home.svg" alt="">Home</a>
+      <a class="nav-item" href="screen2-conversation.html"><img src="assets/icons/nav-conversation.svg" alt="">Conversation</a>
+      <a class="fab" href="screen2-conversation.html" aria-label="Toggle mikrofon"><img src="assets/icons/mic.svg" alt=""></a>
+      <a class="nav-item" href="screen3-soundmap.html"><img src="assets/icons/nav-soundmap.svg" alt="">Sound Map</a>
+      <a class="nav-item active" href="screen6-profile.html"><img src="assets/icons/nav-profile.svg" alt="">Profile</a>
+    </nav>
+  </main>
+</body>
+</html>

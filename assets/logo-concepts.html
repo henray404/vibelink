@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VibeLink Assets</title>
+  <style>
+    :root {
+      --vanilla: #FFEBAF;
+      --moonstone: #4C9DB0;
+      --deep-teal: #1E3A42;
+      --highlight: #FFF6E0;
+    }
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      background: var(--vanilla);
+      color: var(--deep-teal);
+      font-family: Inter, system-ui, sans-serif;
+      line-height: 1.5;
+    }
+    main {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 36px 0 56px;
+    }
+    header {
+      display: grid;
+      gap: 18px;
+      margin-bottom: 36px;
+    }
+    h1,
+    h2 {
+      margin: 0;
+      letter-spacing: 0;
+    }
+    h1 {
+      font-size: 32px;
+      line-height: 1.15;
+    }
+    h2 {
+      font-size: 20px;
+      margin-top: 34px;
+      margin-bottom: 14px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      flex-wrap: wrap;
+    }
+    .logo {
+      width: min(300px, 100%);
+      height: auto;
+    }
+    .app-icon {
+      width: 96px;
+      height: 96px;
+    }
+    .palette,
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 12px;
+    }
+    .swatch,
+    .tile {
+      background: var(--highlight);
+      border: 2px solid rgba(76, 157, 176, 0.35);
+      border-radius: 8px;
+      padding: 14px;
+    }
+    .swatch {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-height: 72px;
+    }
+    .chip {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      border: 2px solid rgba(30, 58, 66, 0.18);
+      flex: 0 0 auto;
+    }
+    .tile {
+      display: grid;
+      grid-template-columns: 32px 1fr;
+      align-items: center;
+      gap: 12px;
+      min-height: 72px;
+    }
+    .tile img {
+      width: 24px;
+      height: 24px;
+    }
+    .name {
+      display: block;
+      font-weight: 700;
+      color: var(--deep-teal);
+    }
+    .file,
+    .hex {
+      display: block;
+      color: var(--moonstone);
+      font-size: 13px;
+      overflow-wrap: anywhere;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>VibeLink Asset Preview</h1>
+      <div class="brand">
+        <img class="logo" src="vibelink-logo.svg" alt="VibeLink logo">
+        <img class="app-icon" src="vibelink-icon.svg" alt="VibeLink app icon">
+      </div>
+    </header>
+
+    <h2>Palette</h2>
+    <section class="palette" aria-label="Palette">
+      <div class="swatch"><span class="chip" style="background:#FFEBAF"></span><span><span class="name">Vanilla</span><span class="hex">#FFEBAF</span></span></div>
+      <div class="swatch"><span class="chip" style="background:#4C9DB0"></span><span><span class="name">Moonstone</span><span class="hex">#4C9DB0</span></span></div>
+      <div class="swatch"><span class="chip" style="background:#1E3A42"></span><span><span class="name">Deep teal</span><span class="hex">#1E3A42</span></span></div>
+      <div class="swatch"><span class="chip" style="background:#FFF6E0"></span><span><span class="name">Highlight</span><span class="hex">#FFF6E0</span></span></div>
+      <div class="swatch"><span class="chip" style="background:#4CAF50"></span><span><span class="name">Positive</span><span class="hex">#4CAF50</span></span></div>
+      <div class="swatch"><span class="chip" style="background:#FFC107"></span><span><span class="name">Neutral</span><span class="hex">#FFC107</span></span></div>
+      <div class="swatch"><span class="chip" style="background:#FF9800"></span><span><span class="name">Warning</span><span class="hex">#FF9800</span></span></div>
+      <div class="swatch"><span class="chip" style="background:#F44336"></span><span><span class="name">Critical</span><span class="hex">#F44336</span></span></div>
+      <div class="swatch"><span class="chip" style="background:#8D6E63"></span><span><span class="name">Animal</span><span class="hex">#8D6E63</span></span></div>
+      <div class="swatch"><span class="chip" style="background:#7C4DFF"></span><span><span class="name">Music</span><span class="hex">#7C4DFF</span></span></div>
+    </section>
+
+    <h2>Nav</h2>
+    <section class="grid" aria-label="Navigation icons">
+      <div class="tile"><img src="icons/nav-home.svg" alt=""><span><span class="name">Home</span><span class="file">nav-home.svg</span></span></div>
+      <div class="tile"><img src="icons/nav-conversation.svg" alt=""><span><span class="name">Conversation</span><span class="file">nav-conversation.svg</span></span></div>
+      <div class="tile"><img src="icons/nav-soundmap.svg" alt=""><span><span class="name">Sound map</span><span class="file">nav-soundmap.svg</span></span></div>
+      <div class="tile"><img src="icons/nav-profile.svg" alt=""><span><span class="name">Profile</span><span class="file">nav-profile.svg</span></span></div>
+    </section>
+
+    <h2>Actions</h2>
+    <section class="grid" aria-label="Action icons">
+      <div class="tile"><img src="icons/mic.svg" alt=""><span><span class="name">Microphone</span><span class="file">mic.svg</span></span></div>
+      <div class="tile"><img src="icons/filter.svg" alt=""><span><span class="name">Filter</span><span class="file">filter.svg</span></span></div>
+      <div class="tile"><img src="icons/notification.svg" alt=""><span><span class="name">Notification</span><span class="file">notification.svg</span></span></div>
+      <div class="tile"><img src="icons/settings.svg" alt=""><span><span class="name">Settings</span><span class="file">settings.svg</span></span></div>
+      <div class="tile"><img src="icons/export.svg" alt=""><span><span class="name">Export</span><span class="file">export.svg</span></span></div>
+      <div class="tile"><img src="icons/alert.svg" alt=""><span><span class="name">Alert</span><span class="file">alert.svg</span></span></div>
+    </section>
+
+    <h2>Emotions</h2>
+    <section class="grid" aria-label="Emotion icons">
+      <div class="tile"><img src="icons/emotion-senang.svg" alt=""><span><span class="name">Senang</span><span class="file">emotion-senang.svg</span></span></div>
+      <div class="tile"><img src="icons/emotion-netral.svg" alt=""><span><span class="name">Netral</span><span class="file">emotion-netral.svg</span></span></div>
+      <div class="tile"><img src="icons/emotion-frustrasi.svg" alt=""><span><span class="name">Frustrasi</span><span class="file">emotion-frustrasi.svg</span></span></div>
+      <div class="tile"><img src="icons/emotion-marah.svg" alt=""><span><span class="name">Marah</span><span class="file">emotion-marah.svg</span></span></div>
+    </section>
+
+    <h2>Sound</h2>
+    <section class="grid" aria-label="Sound icons">
+      <div class="tile"><img src="icons/sound-kendaraan.svg" alt=""><span><span class="name">Kendaraan</span><span class="file">sound-kendaraan.svg</span></span></div>
+      <div class="tile"><img src="icons/sound-alarm.svg" alt=""><span><span class="name">Alarm</span><span class="file">sound-alarm.svg</span></span></div>
+      <div class="tile"><img src="icons/sound-pintu.svg" alt=""><span><span class="name">Pintu</span><span class="file">sound-pintu.svg</span></span></div>
+      <div class="tile"><img src="icons/sound-orang.svg" alt=""><span><span class="name">Orang</span><span class="file">sound-orang.svg</span></span></div>
+      <div class="tile"><img src="icons/sound-hewan.svg" alt=""><span><span class="name">Hewan</span><span class="file">sound-hewan.svg</span></span></div>
+      <div class="tile"><img src="icons/sound-musik.svg" alt=""><span><span class="name">Musik</span><span class="file">sound-musik.svg</span></span></div>
+    </section>
+  </main>
+</body>
+</html>

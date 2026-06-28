@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VibeLink - Conversation</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app" aria-label="Conversation Mode">
+    <header class="topbar">
+      <a class="back-btn" href="screen1-home.html" aria-label="Kembali">&lsaquo;</a>
+      <h1 class="h-title">Conversation</h1>
+      <div class="segmented" role="tablist" aria-label="Ukuran teks">
+        <button type="button" aria-selected="false">A-</button>
+        <button type="button" aria-selected="true">A</button>
+        <button type="button" aria-selected="false">A+</button>
+      </div>
+    </header>
+
+    <section class="card" aria-label="Ringkasan emosi">
+      <div class="emotion-bar" aria-label="40 persen senang, 20 persen netral, 25 persen frustrasi, 15 persen marah">
+        <span class="emotion-seg pos"></span>
+        <span class="emotion-seg pos"></span>
+        <span class="emotion-seg neu"></span>
+        <span class="emotion-seg fru"></span>
+        <span class="emotion-seg fru"></span>
+        <span class="emotion-seg ang"></span>
+      </div>
+      <div class="emotion-label">
+        <img src="assets/icons/emotion-frustrasi.svg" alt="" width="32" height="32">
+        <span>Tegang</span>
+        <span class="chip bg-fru">confidence 82%</span>
+      </div>
+      <p>Kemungkinan frustrasi. Getaran tajam singkat.</p>
+    </section>
+
+    <section aria-label="Transkripsi percakapan">
+      <article class="bubble" tabindex="0" role="button">
+        <span class="strip bg-pos"></span>
+        "Oh bagus banget idemu!"
+        <small>Senang - ikon + label + strip hijau</small>
+      </article>
+      <article class="bubble" tabindex="0" role="button">
+        <span class="strip bg-fru"></span>
+        "Kita perlu selesaikan ini sebelum Jumat."
+        <small>Tegang - confidence 82%</small>
+      </article>
+      <article class="bubble" tabindex="0" role="button">
+        <span class="strip bg-neu"></span>
+        "Ya... nggak papa sih."
+        <small>Netral/ragu - live cursor sedang berjalan</small>
+      </article>
+    </section>
+
+    <div class="controls" aria-label="Kontrol rekaman">
+      <button class="pill-btn pill-btn--accent" type="button">Rekam</button>
+      <button class="pill-btn" type="button">Jeda</button>
+      <button class="pill-btn" type="button">Hapus</button>
+    </div>
+
+    <nav class="bottom-nav" aria-label="Navigasi utama">
+      <a class="nav-item" href="screen1-home.html"><img src="assets/icons/nav-home.svg" alt="">Home</a>
+      <a class="nav-item active" href="screen2-conversation.html"><img src="assets/icons/nav-conversation.svg" alt="">Conversation</a>
+      <a class="fab" href="screen2-conversation.html" aria-label="Toggle mikrofon"><img src="assets/icons/mic.svg" alt=""></a>
+      <a class="nav-item" href="screen3-soundmap.html"><img src="assets/icons/nav-soundmap.svg" alt="">Sound Map</a>
+      <a class="nav-item" href="screen6-profile.html"><img src="assets/icons/nav-profile.svg" alt="">Profile</a>
+    </nav>
+  </main>
+  <script>
+    document.querySelectorAll('.segmented button').forEach(button => {
+      button.addEventListener('click', () => {
+        button.parentElement.querySelectorAll('button').forEach(item => item.setAttribute('aria-selected', 'false'));
+        button.setAttribute('aria-selected', 'true');
+      });
+    });
+  </script>
+</body>
+</html>

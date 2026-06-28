@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VibeLink — UI Preview</title>
+<style>
+  :root{
+    /* brand palette — Vanilla + Moonstone */
+    --vanilla:#FFEBAF; --vanilla-soft:#FFF3CF; --cream:#FFF6E0;
+    --moon:#4C9DB0; --moon-deep:#3A7E8F; --teal-ink:#1E3A42; --muted:#4C6B73;
+    /* semantic emotion / sound (functional, kept) */
+    --green:#4CAF50; --yellow:#E0A100; --orange:#E07A1F; --red:#E5544B;
+    --brown:#8D6E63; --purple:#7C4DFF;
+    --line:#E6CF8E; --r:22px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    background:var(--vanilla);
+    color:var(--teal-ink); font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+    padding:40px 20px 80px; min-height:100vh;
+  }
+  .head{max-width:1200px;margin:0 auto 36px;text-align:center}
+  .wordmark{font-size:34px;font-weight:800;letter-spacing:-.5px;color:var(--teal-ink);display:inline-block}
+  .wordmark span{color:var(--moon)}
+  .tag{color:var(--muted);font-size:15px;margin-top:8px;max-width:640px;margin-inline:auto;line-height:1.5}
+  .swatches{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:18px}
+  .sw{display:flex;align-items:center;gap:6px;font-size:11px;color:var(--muted);
+    background:var(--cream);border:1px solid var(--line);padding:5px 9px;border-radius:20px}
+  .dot{width:12px;height:12px;border-radius:50%;border:1px solid rgba(0,0,0,.08)}
+
+  .stage{display:flex;gap:34px;justify-content:center;flex-wrap:wrap;max-width:1280px;margin:0 auto}
+
+  /* phone frame */
+  .phone{width:300px;height:640px;border-radius:40px;background:var(--vanilla);
+    border:1px solid #E6CF8E;box-shadow:0 24px 60px rgba(30,58,66,.22),inset 0 0 0 6px #FFF6E0;
+    position:relative;overflow:hidden;display:flex;flex-direction:column}
+  .notch{position:absolute;top:10px;left:50%;transform:translateX(-50%);
+    width:120px;height:24px;background:var(--moon);border-radius:0 0 16px 16px;z-index:9}
+  .screen{flex:1;display:flex;flex-direction:column;padding:34px 16px 0;overflow:hidden}
+  .caption{text-align:center;color:var(--muted);font-size:13px;margin-top:14px;font-weight:600}
+
+  .top{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+  .top .logo{font-weight:800;font-size:16px;color:var(--teal-ink)}
+  .top .logo b{color:var(--moon)}
+  .top .ic{display:flex;gap:8px}
+  .pill{width:30px;height:30px;border-radius:50%;background:var(--cream);border:1px solid var(--line)}
+  .scr-title{display:flex;align-items:center;gap:8px;margin-bottom:12px}
+  .scr-title b{font-size:17px;color:var(--teal-ink)}
+  .back{color:var(--moon);font-size:18px;font-weight:700}
+
+  /* aurora canvas — moonstone/teal flow on vanilla */
+  .aurora{position:relative;height:300px;border-radius:var(--r);overflow:hidden;
+    background:var(--vanilla-soft);border:1px solid var(--line)}
+  .aurora::before,.aurora::after{content:"";position:absolute;inset:-40%;border-radius:50%;
+    filter:blur(34px);opacity:.8;mix-blend-mode:multiply}
+  .aurora::before{background:radial-gradient(circle at 32% 42%,#4C9DB0,transparent 56%),
+    radial-gradient(circle at 62% 32%,#7FC2CE,transparent 55%);animation:drift 9s ease-in-out infinite alternate}
+  .aurora::after{background:radial-gradient(circle at 70% 70%,#3A7E8F,transparent 55%),
+    radial-gradient(circle at 38% 76%,#A9DDE2,transparent 50%);animation:drift2 11s ease-in-out infinite alternate}
+  @keyframes drift{from{transform:translate(-6%,-4%) scale(1)}to{transform:translate(8%,6%) scale(1.15)}}
+  @keyframes drift2{from{transform:translate(6%,4%) scale(1.1)}to{transform:translate(-8%,-6%) scale(1)}}
+
+  .statusbar{display:flex;align-items:center;gap:10px;margin:14px 2px}
+  .db{flex:1;display:flex;gap:3px}
+  .db i{flex:1;height:10px;border-radius:2px;background:#EAD7A0}
+  .db i.on{background:var(--moon)}
+  .badge{font-size:11px;font-weight:700;padding:4px 10px;border-radius:20px;display:flex;align-items:center;gap:5px}
+  .badge.normal{background:rgba(76,175,80,.16);color:#3a7d3e;border:1px solid rgba(76,175,80,.45)}
+
+  .qa{display:flex;gap:10px;margin-top:14px}
+  .qa .card{flex:1;background:var(--cream);border:1px solid var(--line);border-radius:16px;
+    padding:12px 8px;text-align:center;font-size:11px;color:var(--muted)}
+  .qa .gi{font-size:18px;display:block;margin-bottom:5px}
+
+  .fab{position:absolute;bottom:74px;left:50%;transform:translateX(-50%);
+    width:58px;height:58px;border-radius:50%;background:var(--moon);color:#fff;display:flex;align-items:center;
+    justify-content:center;font-size:24px;box-shadow:0 10px 26px rgba(76,157,176,.55);z-index:6}
+  .nav{position:absolute;bottom:0;left:0;right:0;height:62px;background:var(--cream);border-top:1px solid var(--line);
+    display:flex;justify-content:space-around;align-items:center;padding:0 6px}
+  .nav span{font-size:10px;color:var(--muted);display:flex;flex-direction:column;align-items:center;gap:3px}
+  .nav span b{font-size:16px}
+  .nav .act{color:var(--moon);font-weight:700}
+
+  /* emotion bar */
+  .ebar{height:46px;border-radius:14px;overflow:hidden;display:flex;border:1px solid var(--line)}
+  .ebar i{flex:1}
+  .ebar .g{background:var(--green)} .ebar .y{background:var(--yellow)}
+  .ebar .o{background:var(--orange)} .ebar .r{background:var(--red)}
+  .emolabel{display:flex;align-items:center;justify-content:space-between;margin:10px 2px 14px}
+  .emolabel .l{font-weight:800;font-size:16px;color:var(--orange)}
+  .emolabel .c{font-size:11px;color:var(--muted)}
+  .bubbles{flex:1;display:flex;flex-direction:column;gap:10px;overflow:hidden}
+  .bub{background:var(--cream);border-radius:14px;padding:10px 12px 10px 14px;position:relative;font-size:13px;line-height:1.35;border:1px solid var(--line)}
+  .bub::before{content:"";position:absolute;left:0;top:8px;bottom:8px;width:4px;border-radius:4px}
+  .bub.g::before{background:var(--green)} .bub.o::before{background:var(--orange)} .bub.y::before{background:var(--yellow)}
+  .bub small{color:var(--muted);font-size:10px;display:block;margin-top:3px}
+  .ctrl{display:flex;gap:8px;margin:12px 0 78px}
+  .ctrl b{flex:1;text-align:center;font-size:12px;font-weight:700;padding:11px 0;border-radius:12px}
+  .ctrl .rec{background:var(--moon);color:#fff}
+  .ctrl .out{background:transparent;border:1px solid var(--moon);color:var(--moon-deep)}
+
+  /* radar */
+  .radar{position:relative;height:280px;margin:6px 0 12px;display:flex;align-items:center;justify-content:center}
+  .radar i.ring{position:absolute;border:1px solid #D9C684;border-radius:50%}
+  .ring.r1{width:90px;height:90px}.ring.r2{width:170px;height:170px}.ring.r3{width:250px;height:250px}
+  .sweep{position:absolute;width:250px;height:250px;border-radius:50%;
+    background:conic-gradient(from 0deg,rgba(76,157,176,.32),transparent 35%);animation:spin 4s linear infinite}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .you{width:14px;height:14px;border-radius:50%;background:var(--moon);box-shadow:0 0 0 4px rgba(76,157,176,.25);z-index:3}
+  .blip{position:absolute;display:flex;flex-direction:column;align-items:center;gap:2px;font-size:9px;color:var(--muted)}
+  .blip b{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:15px;border:1px solid var(--line);background:var(--cream)}
+  .blip.alarm{top:8px;left:50%;transform:translateX(-50%)}
+  .blip.alarm b{border-color:var(--red);color:var(--red);animation:blink 1s steps(2) infinite}
+  @keyframes blink{50%{box-shadow:0 0 14px rgba(229,84,75,.6);background:rgba(229,84,75,.14)}}
+  .blip.car{bottom:40px;left:30px}.blip.car b{border-color:var(--orange);color:var(--orange);width:38px;height:38px}
+  .blip.person{top:96px;right:24px}.blip.person b{border-color:var(--green);color:var(--green)}
+  .detlist{display:flex;flex-direction:column;gap:7px}
+  .det{display:flex;align-items:center;gap:8px;background:var(--cream);border:1px solid var(--line);
+    border-radius:12px;padding:8px 10px;font-size:11px}
+  .det .em{font-size:15px}
+  .det .meta{margin-left:auto;color:var(--muted);font-size:10px}
+  .disc{font-size:9.5px;color:#8a7a4a;text-align:center;margin-top:10px;line-height:1.4}
+
+  /* analytics */
+  .mood{height:30px;border-radius:10px;overflow:hidden;display:flex;border:1px solid var(--line)}
+  .mood i{flex:1}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin:12px 0}
+  .stat{background:var(--cream);border:1px solid var(--line);border-radius:14px;padding:11px}
+  .stat .n{font-size:20px;font-weight:800;color:var(--teal-ink)}
+  .stat .k{font-size:10px;color:var(--muted);margin-top:2px}
+  .donut{width:54px;height:54px;border-radius:50%;margin:0 auto;
+    background:conic-gradient(var(--green) 0 55%,var(--yellow) 55% 75%,var(--orange) 75% 90%,var(--red) 90% 100%);
+    -webkit-mask:radial-gradient(circle 14px at center,transparent 98%,#000);mask:radial-gradient(circle 14px at center,transparent 98%,#000)}
+  .insight{background:rgba(76,157,176,.12);
+    border:1px solid rgba(76,157,176,.4);border-radius:14px;padding:11px 12px;font-size:11.5px;line-height:1.45;color:var(--teal-ink)}
+  .insight b{color:var(--moon-deep)}
+  .trend{height:60px;margin-top:12px;border-radius:12px;border:1px solid var(--line);
+    background:var(--cream);display:flex;align-items:flex-end;gap:3px;padding:8px;overflow:hidden}
+  .trend i{flex:1;border-radius:3px 3px 0 0;background:var(--moon)}
+  .export{margin:12px 0 14px;text-align:center;font-size:12px;font-weight:700;
+    padding:11px;border-radius:12px;background:var(--moon);color:#fff}
+
+  .seg{display:flex;background:var(--cream);border:1px solid var(--line);border-radius:20px;padding:3px;font-size:10px;margin-left:auto}
+  .seg b{padding:4px 9px;border-radius:16px;color:var(--muted)}
+  .seg b.on{background:var(--moon);color:#fff}
+
+  h3.section{font-size:11px;color:var(--muted);margin:14px 2px 8px;text-transform:uppercase;letter-spacing:.5px}
+  .foot{text-align:center;color:#a08a4e;font-size:11px;margin-top:46px}
+</style>
+</head>
+<body>
+  <div class="head">
+    <div class="wordmark">Vibe<span>Link</span></div>
+    <div class="tag">Penerjemah emosi & suasana lingkungan berbasis visualisasi audio-haptik untuk penyandang disabilitas pendengaran & neurodiversitas.</div>
+    <div class="swatches">
+      <span class="sw"><span class="dot" style="background:#FFEBAF"></span>Vanilla #FFEBAF</span>
+      <span class="sw"><span class="dot" style="background:#4C9DB0"></span>Moonstone #4C9DB0</span>
+      <span class="sw"><span class="dot" style="background:#4CAF50"></span>Senang</span>
+      <span class="sw"><span class="dot" style="background:#E0A100"></span>Netral</span>
+      <span class="sw"><span class="dot" style="background:#E07A1F"></span>Frustrasi</span>
+      <span class="sw"><span class="dot" style="background:#E5544B"></span>Marah</span>
+    </div>
+  </div>
+
+  <div class="stage">
+
+    <!-- SCREEN 1: HOME / LIVE ATMOSPHERE CANVAS -->
+    <div>
+    <div class="phone"><div class="notch"></div>
+      <div class="screen">
+        <div class="top"><span class="logo">Vibe<b>Link</b></span><span class="ic"><i class="pill"></i><i class="pill"></i></span></div>
+        <div class="aurora"></div>
+        <div class="statusbar">
+          <div class="db"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i></div>
+          <span class="badge normal">● 62 dB · Normal</span>
+        </div>
+        <div class="qa">
+          <div class="card"><span class="gi">💬</span>Conversation</div>
+          <div class="card"><span class="gi">📡</span>Sound Map</div>
+          <div class="card"><span class="gi">📊</span>Analytics</div>
+        </div>
+        <div class="fab">🎤</div>
+        <div class="nav">
+          <span class="act"><b>⌂</b>Home</span><span><b>💬</b>Conv</span><span><b>◎</b>Map</span><span><b>○</b>Profil</span>
+        </div>
+      </div>
+    </div>
+    <div class="caption">1 · Home — Live Atmosphere Canvas</div>
+    </div>
+
+    <!-- SCREEN 2: CONVERSATION MODE -->
+    <div>
+    <div class="phone"><div class="notch"></div>
+      <div class="screen">
+        <div class="scr-title"><span class="back">‹</span><b>Conversation</b><span class="seg"><b>A-</b><b class="on">A</b><b>A+</b></span></div>
+        <div class="ebar"><i class="g"></i><i class="g"></i><i class="y"></i><i class="o"></i><i class="o"></i></div>
+        <div class="emolabel"><span class="l">😟 Tegang</span><span class="c">confidence 82%</span></div>
+        <div class="bubbles">
+          <div class="bub g">"Oh bagus banget idemu!"<small>🙂 Senang</small></div>
+          <div class="bub o">"Kita perlu selesaikan ini sebelum Jumat."<small>😟 Tegang</small></div>
+          <div class="bub y">"Ya... nggak papa sih."<small>😐 Ragu</small></div>
+        </div>
+        <div class="ctrl"><b class="rec">● Rekam</b><b class="out">⏸ Jeda</b><b class="out">🗑 Hapus</b></div>
+        <div class="nav">
+          <span><b>⌂</b>Home</span><span class="act"><b>💬</b>Conv</span><span><b>◎</b>Map</span><span><b>○</b>Profil</span>
+        </div>
+      </div>
+    </div>
+    <div class="caption">2 · Conversation Mode — Emotion Bar</div>
+    </div>
+
+    <!-- SCREEN 3: SOUND MAP -->
+    <div>
+    <div class="phone"><div class="notch"></div>
+      <div class="screen">
+        <div class="scr-title"><span class="back">‹</span><b>Sound Map</b><span class="seg"><b>Filter</b><b class="on">Alert</b></span></div>
+        <div class="radar">
+          <i class="ring r1"></i><i class="ring r2"></i><i class="ring r3"></i>
+          <div class="sweep"></div>
+          <div class="you"></div>
+          <div class="blip alarm"><b>🔔</b>Alarm</div>
+          <div class="blip car"><b>🚗</b>Kendaraan</div>
+          <div class="blip person"><b>🧑</b>Orang</div>
+        </div>
+        <div class="detlist">
+          <div class="det"><span class="em">🔔</span>Alarm — depan<span class="meta">92% · ~5m · now</span></div>
+          <div class="det"><span class="em">🚗</span>Kendaraan — kiri<span class="meta">78% · ~12m · 2s</span></div>
+          <div class="det"><span class="em">🧑</span>Orang — kanan<span class="meta">84% · ~2m · 4s</span></div>
+        </div>
+        <div class="disc">Arah & deteksi bersifat estimasi — bukan alat keselamatan tunggal.</div>
+        <div class="nav">
+          <span><b>⌂</b>Home</span><span><b>💬</b>Conv</span><span class="act"><b>◎</b>Map</span><span><b>○</b>Profil</span>
+        </div>
+      </div>
+    </div>
+    <div class="caption">3 · Sound Map — radar arah suara</div>
+    </div>
+
+    <!-- SCREEN 4: ANALYTICS -->
+    <div>
+    <div class="phone"><div class="notch"></div>
+      <div class="screen">
+        <div class="scr-title"><span class="back">‹</span><b>Analytics</b><span class="seg"><b class="on">Harian</b><b>Minggu</b><b>Bulan</b></span></div>
+        <h3 class="section">Mood Palette · Hari ini</h3>
+        <div class="mood"><i style="background:#4CAF50"></i><i style="background:#4CAF50"></i><i style="background:#E0A100"></i><i style="background:#E07A1F"></i><i style="background:#4CAF50"></i><i style="background:#4CAF50"></i><i style="background:#E5544B"></i><i style="background:#4CAF50"></i><i style="background:#E0A100"></i><i style="background:#4CAF50"></i></div>
+        <div class="grid2">
+          <div class="stat"><div class="n">5</div><div class="k">Percakapan</div></div>
+          <div class="stat"><div class="n">2j 14m</div><div class="k">Listening</div></div>
+          <div class="stat"><div class="n">2</div><div class="k">Peringatan suara</div></div>
+          <div class="stat"><div class="donut"></div><div class="k" style="text-align:center;margin-top:6px">Distribusi emosi</div></div>
+        </div>
+        <div class="insight">💡 <b>Hari ini</b> Anda melakukan 5 percakapan. Mayoritas bernada positif. Ada 2 peringatan klakson di sore hari.</div>
+        <div class="trend"><i style="height:40%"></i><i style="height:65%"></i><i style="height:50%"></i><i style="height:80%"></i><i style="height:35%"></i><i style="height:70%"></i><i style="height:55%"></i></div>
+        <div class="export">⬇ Ekspor PDF</div>
+        <div class="nav">
+          <span><b>⌂</b>Home</span><span><b>💬</b>Conv</span><span><b>◎</b>Map</span><span class="act"><b>○</b>Profil</span>
+        </div>
+      </div>
+    </div>
+    <div class="caption">4 · Interaction Analytics — Mood Palette</div>
+    </div>
+
+  </div>
+
+  <div class="foot">VibeLink UI Preview · Vanilla + Moonstone · redundant coding (warna + ikon + teks) · WCAG 2.1 · target ≥48dp</div>
+</body>
+</html>
